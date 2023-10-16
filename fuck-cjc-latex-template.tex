@@ -1,0 +1,259 @@
+%!TEX encoding = UTF-8
+\documentclass[10.5pt, compsoc]{CjC}
+\usepackage{CJKutf8}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{footmisc}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage[noadjust]{cite}
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb, amsfonts}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{ccaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{xcolor, stfloats}
+\usepackage{comment}
+\setcounter{page}{1}
+\graphicspath{{figures/}}
+\usepackage{cuted}%flushend,
+\usepackage{captionhack}
+\usepackage{epstopdf}
+\usepackage{booktabs, makecell, multirow, tabularx}
+\usepackage{hyperref}
+\usepackage{enumerate}
+%\usepackage{ccmap}
+%\CJKtilde
+%\usepackage{CJKpunct}
+%\usepackage[lite,subscriptcorrection,slantedGreek,nofontinfo]{mtpro2}
+
+%===============================%
+
+%\firstfootname{ \quad \quad }
+\headevenname{\mbox{\quad} \hfill \mbox{\zihao{-5}{\begin{CJK*}{UTF8}{song}计\quad \quad 算\quad \quad 机\quad \quad 学\quad \quad 报\end{CJK*}} \hspace{50mm} \mbox{\begin{CJK*}{UTF8}{song}2023 年\end{CJK*}}}}%
+\headoddname{\begin{CJK*}{UTF8}{song}? 期 \hfill 王萍等：验证码安全性研究与发展综述\end{CJK*}}%
+
+\interfootnotelinepenalty=10000
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+\renewcommand{\footnotelayout}{\zihao{5-}}
+
+\newtheoremstyle{mystyle}{0pt}{0pt}{\normalfont}{1em}{\bf}{}{1em}{}
+\theoremstyle{mystyle}
+\renewcommand{\figurename}{figure~}
+\makeatletter
+\renewcommand{\fnum@figure}{图 \thefigure}
+\renewcommand{\fnum@table}{表 \thetable}
+\makeatother
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}} #2 \end{tabular}}
+\newcommand{\abc}{\color{white}
+\vrule width 2pt}
+\makeatletter
+\renewcommand{\@biblabel}[1]{[#1]\hfill}
+\makeatother
+\setlength{\parindent}{2em}
+%\renewcommand{\hth}{\begin{CJK*}{UTF8}{hei}}
+%\renewcommand{\htss}{\begin{CJK*}{UTF8}{song}}
+
+\renewcommand{\floatpagefraction}{.9}
+\renewcommand{\topfraction}{.9}
+\renewcommand{\bottomfraction}{.9}
+\renewcommand{\textfraction}{.1}
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+\begin{document}
+\makeatletter
+\newcommand\mysmall{\@setfontsize\mysmall{7}{9.5}}
+\newenvironment{tablehere}
+{\def\@captype{table}}
+
+\let\temp\footnote
+\renewcommand \footnote[1]{\temp{\zihao{-5}#1}}
+
+\thispagestyle{plain}%
+\thispagestyle{empty}%
+\pagestyle{CjCheadings}
+
+% 一、正文前内容
+
+\begin{table*}[!t]
+	\vspace{-13mm}
+	\begin{tabular}{p{168mm}}
+		\zihao{5-}\begin{CJK*}{UTF8}{song}第??卷\quad 第?期 \hfill 计\quad 算\quad 机\quad 学\quad 报\hfill Vol. ?? No. ?\end{CJK*} \\
+		\zihao{5-}\begin{CJK*}{UTF8}{song}20??年?月 \hfill CHINESE JOURNAL OF COMPUTERS \hfill ???. 20??\end{CJK*} \\
+		\hline \\[-4.5mm] \hline
+	\end{tabular}
+
+	\centering
+	\vspace{11mm}
+	\begin{CJK}{UTF8}{hei} {\zihao{2} 及时行乐的重要性与可行性研究} \end{CJK}
+	\vskip 5mm
+		{\zihao{3}\begin{CJK*}{UTF8}{fs} 胡一菲$^{1)}$\quad 曾小贤$^{2)}$ \end{CJK*}}\\
+	\vspace{5mm}
+	\zihao{6}{\begin{CJK*}{UTF8}{song} $^{1)}$(爱情公寓 3601 室) \end{CJK*}}
+	\zihao{6}{\begin{CJK*}{UTF8}{song} $^{2)}$(爱情公寓 3601 室) \end{CJK*}}
+	\vskip 5mm {
+			\centering
+			\begin{tabular}{p{160mm}}
+				\zihao{5-}{
+					\setlength{\baselineskip}{16pt}\selectfont{
+						\noindent\begin{CJK*}{UTF8}{hei}摘\quad 要\quad\end{CJK*}
+						\begin{CJK*}{UTF8}{song} 要想清楚，及时行乐的重要性与可行性研究，到底是一种怎么样的存在。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 苏轼曾经提到过，古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。这不禁令我深思。 问题的关键究竟为何？ 及时行乐的重要性与可行性研究的发生，到底需要如何做到，不及时行乐的重要性与可行性研究的发生，又会如何产生。 在这种困难的抉择下，本人思来想去，寝食难安。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 及时行乐的重要性与可行性研究，到底应该如何实现。 带着这些问题，我们来审视一下及时行乐的重要性与可行性研究。 那么， 我们都知道，只要有意义，那么就必须慎重考虑。 了解清楚及时行乐的重要性与可行性研究到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 笛卡儿说过一句富有哲理的话，读一切好书，就是和许多高尚的人谈话。带着这句话，我们还要更加慎重的审视这个问题： 总结的来说， 那么， 总结的来说， 卢梭说过一句富有哲理的话，浪费时间是一桩大罪过。这句话语虽然很短，但令我浮想联翩。 \end{CJK*}\par
+					}
+				} \\[2mm]
+				\zihao{5-}{\noindent \begin{CJK*}{UTF8}{hei}关键词\end{CJK*} \quad \begin{CJK*}{UTF8}{song}{可行性研究；及时行乐；爱情公寓} \end{CJK*}} \\[2mm]
+				\zihao{5-}{\begin{CJK*}{UTF8}{hei}中图法分类号\end{CJK*} \begin{CJK*}{UTF8}{song}TP\end{CJK*}\rm{\quad \quad \quad } \begin{CJK*}{UTF8}{hei}DOI号:\end{CJK*}\begin{CJK*}{UTF8}{song}*投稿时不提供DOI号\end{CJK*}}\end{tabular}
+		}
+
+	\vskip 7mm
+	\begin{center}
+		\zihao{3}{{\begin{CJK*}{UTF8}{hei}{\bf Importance and Feasibility Study of Living in the Moment} \end{CJK*}}} \\
+		\vspace{5mm}
+		\zihao{5}{{\begin{CJK*}{UTF8}{hei} HU Yi-Fei$^{1)}$\quad ZENG Xiao-Xian$^{2)}$ \end{CJK*}}} \\
+		\vspace{2mm}
+		\zihao{6}{\begin{CJK*}{UTF8}{hei}{$^{1)}$(3601, iPartment)}\end{CJK*}}
+		\zihao{6}{\begin{CJK*}{UTF8}{hei}{$^{2)}$(3602, iPartment)}\end{CJK*}}
+	\end{center}
+
+	\begin{tabular}{p{160mm}}
+		\zihao{5}{\setlength{\baselineskip}{18pt}\selectfont{{\bf Abstract}\quad \begin{CJK*}{UTF8}{hei}\end{CJK*} \par}}
+
+		\setlength{\baselineskip}{18pt}\selectfont{ \zihao{5}{\noindent Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis. Viverra maecenas accumsan lacus vel facilisis volutpat est. Vestibulum lectus mauris ultrices eros in cursus. Mauris commodo quis imperdiet massa. Volutpat est velit egestas dui id. Blandit turpis cursus in hac habitasse platea. Egestas integer eget aliquet nibh praesent tristique magna sit. Non nisi est sit amet facilisis magna etiam tempor orci. At elementum eu facilisis sed odio morbi quis. Consequat ac felis donec et odio pellentesque diam volutpat. Foo Bar Baz BLACKPINK }}
+	\end{tabular}
+
+	\setlength{\tabcolsep}{2pt}
+	\begin{tabular}{p{0.05cm}p{16.15cm}}
+		\multicolumn{2}{l}{\rule[4mm]{40mm}{0.1mm}} \\[-3mm]
+		 & \begin{CJK*}{UTF8}{gbsn}
+			   本课题得到国家自然科学基金 (No.11111111) 资助. 胡一菲，女，2001年生，硕士研究生，主要研究领域为吃饭、睡觉、打游戏. E-mail: foo@bar.com. 曾小贤 (通信作者)，男，1990年生，博士，教授，计算机学会 (CCF) 会员 (11111X)，主要研究领域为猪肉的十三种做法. E-mail: baz@porkacademy.edu.cn.
+			   第1作者手机号码: 11111111111, E-mail: foo@bar.com
+		   \end{CJK*}
+	\end{tabular}
+\end{table*}
+
+\clearpage
+\begin{strip}
+	\begin{center}
+		\vspace{-3em}
+		\begin{tabular}{p{160mm}}
+			\setlength{\baselineskip}{18pt} Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis. \\
+			\vspace{5mm} {\bf Keywords}\quad \begin{CJK*}{UTF8}{hei} Living in the moment; Feasibility study; iPartment \end{CJK*} \\
+		\end{tabular}
+	\end{center}
+\end{strip}
+
+\newpage
+\linespread{1.15}
+
+% 二、正文内容
+
+\begin{CJK*}{UTF8}{hei} \zihao{5} \vskip 1mm \section{一级标题} \end{CJK*}
+
+\begin{CJK*}{UTF8}{song}
+
+	{\begin{CJK*}{UTF8}{hei} \subsection{二级标题} \end{CJK*}}
+
+	\subsubsection{三级标题}
+
+	及时行乐的重要性与可行性研究，到底应该如何实现\upcite{von2004telling}。 维龙在不经意间这样说过，要成功不需要什么特别的才能，只要把你能做的小事做得好就行了\footnote{这是一个脚注}。带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 老子在不经意间这样说过，知人者智，自知者明。胜人者有力，自胜者强。我希望诸位也能好好地体会这句话。 乌申斯基说过一句富有哲理的话，学习是劳动，是充满思想的劳动。我希望诸位也能好好地体会这句话。 在这种困难的抉择下，本人思来想去，寝食难安。 莎士比亚曾经提到过，意志命运往往背道而驰，决心到最后会全部推倒。这不禁令我深思。 所谓及时行乐的重要性与可行性研究，关键是及时行乐的重要性与可行性研究需要如何写。 黑格尔说过一句富有哲理的话，只有永远躺在泥坑里的人，才不会再掉进坑里。这句话语虽然很短，但令我浮想联翩。 可是，即使是这样，及时行乐的重要性与可行性研究的出现仍然代表了一定的意义。 所谓及时行乐的重要性与可行性研究，关键是及时行乐的重要性与可行性研究需要如何写。 我认为， 这样看来， 池田大作曾经说过，不要回避苦恼和困难，挺起身来向它挑战，进而克服它。带着这句话，我们还要更加慎重的审视这个问题： 我们不得不面对一个非常尴尬的事实，那就是， 问题的关键究竟为何？ 马云曾经提到过，最大的挑战和突破在于用人，而用人最大的突破在于信任人\footnote{这是一个超链接. \href{https://www.zhihu.com/question/23290343}{https://www.zhihu.com/question/23290343}}。我希望诸位也能好好地体会这句话\upcite{li2021image}。
+
+	歌德曾经说过，没有人事先了解自己到底有多大的力量，直到他试过以后才知道。这似乎解答了我的疑惑。 可是，即使是这样，及时行乐的重要性与可行性研究的出现仍然代表了一定的意义。 每个人都不得不面对这些问题。 在面对这种问题时， 邓拓曾经说过，越是没有本领的就越加自命不凡。这启发了我， 对我个人而言，及时行乐的重要性与可行性研究不仅仅是一个重大的事件，还可能会改变我的人生。 笛卡儿在不经意间这样说过，阅读一切好书如同和过去最杰出的人谈话。这句话语虽然很短，但令我浮想联翩。 既然如此， 别林斯基说过一句富有哲理的话，好的书籍是最贵重的珍宝。这不禁令我深思。 我们都知道，只要有意义，那么就必须慎重考虑。 及时行乐的重要性与可行性研究，发生了会如何，不发生又会如何。 从这个角度来看， 及时行乐的重要性与可行性研究，发生了会如何，不发生又会如何。 我们都知道，只要有意义，那么就必须慎重考虑。 生活中，若及时行乐的重要性与可行性研究出现了，我们就不得不考虑它出现了的事实。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 及时行乐的重要性与可行性研究的发生，到底需要如何做到，不及时行乐的重要性与可行性研究的发生，又会如何产生。 及时行乐的重要性与可行性研究因何而发生？ 生活中，若及时行乐的重要性与可行性研究出现了，我们就不得不考虑它出现了的事实。 博曾经说过，一次失败，只是证明我们成功的决心还够坚强。 维带着这句话，我们还要更加慎重的审视这个问题： 要想清楚，及时行乐的重要性与可行性研究，到底是一种怎么样的存在。 我认为， 那么， 及时行乐的重要性与可行性研究，到底应该如何实现。 问题的关键究竟为何？ 可是，即使是这样，及时行乐的重要性与可行性研究的出现仍然代表了一定的意义。 这样看来， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。
+
+	引用图片测试：图 \ref{image-ref-test}
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=.7\linewidth]{./img/test-image.png}
+		\caption{测试图片}
+		\label{image-ref-test}
+	\end{figure}
+
+	引用子图测试：图 \ref{sub-image-ref-test} 中的图 \ref{sub-image-ref-test-a}
+	\begin{figure}[htbp]
+		\centering
+		\setcounter{subfigure}{0}
+		\subfigtopskip=2pt      % 设置子图与上面正文或别的内容的距离
+		\subfigbottomskip=2pt   % 设置第二行子图与第一行子图的距离，即下面的头与上面的脚的距离
+		\subfigcapskip=-5pt     % 设置子图与子标题之间的距离
+		\subfigure[Test a]{
+			\label{sub-image-ref-test-a}
+			\includegraphics[width=0.48\linewidth]{./img/test-image.png}}
+		\hfill
+		\subfigure[Test b]{
+			\label{sub-image-ref-test-b}
+			\includegraphics[width=0.48\linewidth]{./img/test-image.png}}\\
+
+		\caption{测试子图}
+		\label{sub-image-ref-test}
+	\end{figure}
+
+	引用表格测试：表 \ref{table-ref-test}
+	\begin{table*}[!htb]
+		\centering
+		\caption{测试表格}
+		\label{table-ref-test}
+		\begin{tabularx}
+			{\textwidth}{@{\extracolsep{\stretch{1}}}*{5}{c}} \toprule
+			一 & 二 & 三 & 四 & 五 \\ \midrule
+			六 & 七 & 八 & 九 & 十
+			\\ \bottomrule
+		\end{tabularx}
+	\end{table*}
+
+\end{CJK*}
+
+% 三、致谢
+
+\vspace{7mm}
+\zihao{5}{ \raggedright \noindent \begin{CJK*}{UTF8}{hei}致\quad 谢\end{CJK*} \quad \begin{CJK*}{UTF8}{kai} 感谢国家自然科学基金 (No.11111111) 资助，同时向对本文工作给予支持和宝贵建议的评审老师和同行表示衷心的感谢！\end{CJK*}}
+
+% 四、参考文献
+
+\vspace{7mm}
+\centerline {\zihao{5} \begin{CJK*}{UTF8}{hei}参~考~文~献\end{CJK*}}
+\begin{thebibliography}{99}
+	\zihao{5-}
+	\addtolength{\itemsep}{-1em}
+	\vspace{1.5mm}
+
+	\bibitem{von2004telling} Von Ahn L, Blum M, Langford J. Telling humans and computers
+	apart automatically. Communications of the ACM, 2004, 47(2): 56-60.
+	\bibitem{li2021image} Li Wei-Xun, Ma Bin, Ma Xiao, et al. Image CAPTCHA System
+	Based on Universal Adversarial Perturbation. Journal of CAEIT, 2021, 16(10):
+	1020-1028. (in Chinese)
+	\newline
+	\begin{CJK*}
+		{UTF8}{song} 栗维勋, 马斌, 马骁, 等.
+		基于通用性对抗扰动的图像验证码系统研究. 中国电子科学研究院学报, 2021, 16(10):
+		1020-1028.
+	\end{CJK*}
+\end{thebibliography}
+
+% 五、作者介绍
+
+\vspace{7mm}
+\begin{biography}
+	[./img/first-author.jpg] \zihao{5-}{ \noindent\textbf{HU Yi-Fei}, M.S. candidate. Her research interests include eating, sleeping, and playing video games. \\ \noindent\textbf{ZENG Xiao-Xian}, Ph.D., professor. His research interests include how to procrastinate without being noticed or feeling guilty. }
+\end{biography}
+
+% 六、背景
+
+\vspace{11mm}
+\zihao{5}
+\noindent
+\textbf{Background}
+
+\zihao{5-}{ \setlength{\parindent}{2em} Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+
+	This work is supported by National Natural Science Foundation of China (Grant No.11111111). }
+
+\end{document}
